@@ -365,8 +365,8 @@ add effects/animations (see example below).
 If in your view you have the following snippet to select an `owner`:
 
 ```haml
-#owner
-  #owner_from_list
+# owner
+  # owner_from_list
     = f.association :owner, :collection => Person.all(:order => 'name'), :prompt => 'Choose an existing owner'
   = link_to_add_association 'add a new person as owner', f, :owner
 ```
@@ -377,17 +377,17 @@ The callbacks can be added as follows:
 
 ```javascript
 $(document).ready(function() {
-    $('#owner')
+    $('# owner')
       .on('cocoon:before-insert', function() {
-        $("#owner_from_list").hide();
-        $("#owner a.add_fields").hide();
+        $("# owner_from_list").hide();
+        $("# owner a.add_fields").hide();
       })
       .on('cocoon:after-insert', function() {
         /* ... do something ... */
       })
       .on("cocoon:before-remove", function() {
-        $("#owner_from_list").show();
-        $("#owner a.add_fields").show();
+        $("# owner_from_list").show();
+        $("# owner a.add_fields").show();
       })
       .on("cocoon:after-remove", function() {
         /* e.g. recalculate order of child items */
@@ -430,7 +430,7 @@ For example:
 
 ```javascript
 $(document).ready(function() {
-    $("#owner a.add_fields").
+    $("# owner a.add_fields").
       data("association-insertion-method", 'before').
       data("association-insertion-node", 'this');
 });
@@ -446,7 +446,7 @@ For example:
 
 ```javascript
 $(document).ready(function() {
-    $("#owner a.add_fields").
+    $("# owner a.add_fields").
       data("association-insertion-method", 'append').
       data("association-insertion-traversal", 'closest').
       data("association-insertion-node", '#parent_table');
